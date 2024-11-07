@@ -1,2 +1,10 @@
 # todolist-project
-Just a project for learning
+Project to do list (no database) 
+Fitur
+•⁠  ⁠Bisa add kegiatan
+•⁠  ⁠bisa checklist kegiatan
+•⁠  ⁠bisa delete kegiatan
+
+based on learning,
+binusian 
+
