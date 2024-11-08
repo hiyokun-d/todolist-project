@@ -1,10 +1,18 @@
-# todolist-project
-Project to do list (no database) 
-Fitur
-•⁠  ⁠Bisa add kegiatan
-•⁠  ⁠bisa checklist kegiatan
-•⁠  ⁠bisa delete kegiatan
+# Todo project
 
-based on learning,
-binusian 
+So this is a project where me and my friend make a project to learn Javascript and learn how to work together, 
+we're Binusian student on computer science major
 
+## Setup
+> Clone this project
+```sh
+git clone (the url)
+```
+> Install all of the module with npm
+```sh
+npm install
+```
+> try to run it first
+```sh
+npm run dev
+```
