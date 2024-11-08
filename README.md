@@ -16,3 +16,8 @@ npm install
 ```sh
 npm run dev
 ```
+> after you change and push it to the main branch just wait
+`git push origin {your-branch-name}`
+> and then do a pull to get the latest update don't forget to change your branch
+`git checkout main  && git pull origin` 
+
