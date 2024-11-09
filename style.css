@@ -16,8 +16,9 @@
 }
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  outline: 5px solid red
 }
 
 body {
@@ -27,16 +28,324 @@ body {
 
 nav {
   background-color: #4A628A;
-  padding: 10px;
+  padding: 20px 40px;
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 15px rgba(74, 98, 138, 0.3);
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: default;
+  user-select: none;
 }
 
 nav .left {
-  /*TODO: MAKE THIS LOOKS GOOD SOMEHOW */
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-nav .right {
-  /*TODO: MAKE THIS LOOKS GOOD TOO BUT I DON'T KNOW HOW!!*/
+nav .left h2 {
+  color: #DFF2EB;
+  font-size: 24px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+@keyframes explode {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  75% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+nav .left h2:hover {
+  animation: explode 0.6s ease;
+  text-shadow: 0 0 10px #B9E5E8, 0 0 20px #B9E5E8, 0 0 30px #B9E5E8;
+}
+
+nav .right ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  cursor: pointer;
+}
+
+nav .right ul li {
+  color: #DFF2EB;
+  cursor: pointer;
+  position: relative;
+  padding: 8px 15px;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Super fun hover effects for menu items */
+@keyframes buttonExplosion {
+  0% {
+    transform: scale(1);
+    background-color: transparent;
+  }
+
+  50% {
+    transform: scale(1.1) rotate(3deg);
+    background-color: #B9E5E8;
+  }
+
+  75% {
+    transform: scale(0.95) rotate(-2deg);
+    background-color: #7AB2D3;
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+    background-color: #B9E5E8;
+  }
+}
+
+@keyframes textPop {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes glowEffect {
+  0% {
+    box-shadow: 0 0 5px #B9E5E8;
+  }
+
+  50% {
+    box-shadow: 0 0 20px #B9E5E8, 0 0 30px #7AB2D3;
+  }
+
+  100% {
+    box-shadow: 0 0 5px #B9E5E8;
+  }
+}
+
+nav .right ul li:hover {
+  animation:
+    buttonExplosion 0.6s ease forwards,
+    glowEffect 1.5s ease infinite;
+  color: #4A628A;
+  font-weight: bold;
+}
+
+/* Creating particles effect on hover */
+nav .right ul li::before,
+nav .right ul li::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #DFF2EB;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+nav .right ul li::before {
+  left: -20px;
+  top: 50%;
+}
+
+nav .right ul li::after {
+  right: -20px;
+  top: 50%;
+}
+
+nav .right ul li:hover::before {
+  animation: particleLeft 0.8s ease;
+  opacity: 1;
+}
+
+nav .right ul li:hover::after {
+  animation: particleRight 0.8s ease;
+  opacity: 1;
+}
+
+@keyframes particleLeft {
+  0% {
+    left: 50%;
+    top: 50%;
+    opacity: 1;
+  }
+
+  100% {
+    left: -20px;
+    top: -10px;
+    opacity: 0;
+  }
+}
+
+@keyframes particleRight {
+  0% {
+    right: 50%;
+    top: 50%;
+    opacity: 1;
+  }
+
+  100% {
+    right: -20px;
+    top: -10px;
+    opacity: 0;
+  }
+}
+
+nav .left h2::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #B9E5E8;
+  transition: width 0.3s ease;
+}
+
+nav .left h2:hover::after {
+  width: 100%;
+}
+
+/* Remove previous app name hover animation */
+nav .left h2:hover {
+  animation: none;
+  text-shadow: none;
+}
+
+/* SUPER EXCITING click animations for buttons! */
+@keyframes clickBurst {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 #B9E5E8;
+  }
+
+  30% {
+    transform: scale(1.05) rotate(5deg);
+    box-shadow: 0 0 0 10px rgba(185, 229, 232, 0);
+  }
+
+  60% {
+    transform: scale(0.97) rotate(-3deg);
+    box-shadow: 0 0 0 20px rgba(185, 229, 232, 0);
+  }
+
+  100% {
+    transform: scale(1) rotate(0);
+    box-shadow: 0 0 0 0 rgba(185, 229, 232, 0);
+  }
+}
+
+@keyframes rippleEffect {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes shockwave {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    border: 2px solid #B9E5E8;
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 0;
+    border: 2px solid #7AB2D3;
+  }
+}
+
+/* Add new pseudo-elements for click effects */
+nav .right ul li span {
+  position: relative;
+  z-index: 1;
+}
+
+nav .right ul li .ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 5px;
+  height: 5px;
+  background: #B9E5E8;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Exciting click animation */
+nav .right ul li:active {
+  animation: clickBurst 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  background-color: #B9E5E8;
+  transform-origin: center;
+}
+
+nav .right ul li:active::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  transform: translate(-50%, -50%);
+  animation: shockwave 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+/* Create multiple ripples for extra effect */
+nav .right ul li:active::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border-radius: 8px;
+  transform: translate(-50%, -50%);
+  animation: shockwave 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) 0.1s forwards;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  nav {
+    padding: 15px 20px;
+  }
+
+  nav .right ul {
+    gap: 15px;
+  }
+
+  nav .left h2 {
+    font-size: 20px;
+  }
 }
