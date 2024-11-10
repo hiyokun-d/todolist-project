@@ -21,3 +21,10 @@ npm run dev
 > and then do a pull to get the latest update don't forget to change your branch
 `git checkout main && git push --delete {your-branch-name} && git pull origin` 
 
+
+# TODOLIST
+- [] CREATE AN AI CHAT
+- [] MAKE IT work
+- [] GO OUT WITH THE GIRLS
+- [] LOVE IT
+
