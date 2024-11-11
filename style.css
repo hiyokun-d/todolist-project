@@ -438,7 +438,7 @@ nav .right ul li:active::after {
   bottom: 20px;
   right: 20px;
   z-index: 1000;
-  width: 120px;
+  width: 80px;
   height: 45px;
   border-radius: 8px;
   background: linear-gradient(145deg, #4CAF50, #45a049);
