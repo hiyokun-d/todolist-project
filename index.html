@@ -10,35 +10,40 @@
 </head>
 
 <body>
-  <div class="container">
-    <nav>
-      <div class="left">
-        <h1>App Names</h1>
-        <!-- <image src="" class="icon" /> -->
-      </div>
-      <div class="right">
-        <ul>
-          <li>Tools 1</li>
-          <li>Tools 2</li>
-          <li>Tools 3</li>
-          <li>Tools 4</li>
-          <li>Tools 5</li>
-        </ul>
-      </div>
-    </nav>
-    
-    <div class="todo">
-        <h2>To-Do List</h2>
-      <div class="row">
-        <input type="text" class="input-list" placeholder="Add your activity">
-        <button>Add</button>
-      </div>
-      <ul class="list-task">
-        <li>Task 1</li>
-        <li>Task 2</li>
-        <li>Task 3</li>
+  <nav>
+    <div class="left">
+      <h1>App Names</h1>
+      <!-- <image src="" class="icon" /> -->
+    </div>
+    <div class="right">
+      <ul>
+        <li>Tools 1</li>
+        <li>Tools 2</li>
+        <li>Tools 3</li>
+        <li>Tools 4</li>
+        <li>Tools 5</li>
       </ul>
     </div>
+  </nav>
+
+  <div class="container">
+    <div class="containerTodo">
+      <label for="todoContainer">
+        <h3>Task list</h3>
+      </label>
+      <input name="todoContainer" type="checkbox">
+    </div>
+    <div class="containerTodo">
+      <label for="todoContainer">
+        <h3>Task list</h3>
+      </label>
+      <input name="todoContainer" type="checkbox">
+    </div>
+
+    <button id="add-button" class="add-button">
+      <span>+</span>
+      <div class="particles"> </div>
+    </button>
   </div>
 
 
