@@ -37,19 +37,21 @@
       <input name="todoContainer" type="checkbox">
     </div>
 
-    <button id="add-button" class="add-button" onclick="controlPopup()">
+    <button id="add-button" class="add-button">
       <span>+</span>
       <div class="particles"> </div>
     </button>
 
-    <div class="box-popup" id="box-popup">
-      <div class="show-popup menu">
+    <div id="popup-container" class="hide box-popup">
+      <div id="menu" class="hide-popup menu">
+        <h1>ADD YOUR FCKING ACTIVITY</h1>
         <input type="text" class="inputTodo-list" placeholder="Add your activity!">
-        <button class="todo-button">Add</button>
+        <button id="todo-button">Add</button>
+        <button class="cancel">Cancel</button>
       </div>
     </div>
   </div>
-  
+
 
   <script type="module" src="main.js"></script>
 </body>
