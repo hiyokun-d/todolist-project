@@ -22,3 +22,8 @@ document.querySelector('.add-button').addEventListener('click', function (e) {
     }, 600);
   }
 });
+
+function controlPopup() {
+  const popup = document.getElementById('box-popup');
+  popup.classList.toggle('show');
+}
