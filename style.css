@@ -589,35 +589,233 @@ nav .right ul li:active::after {
   left: 0;
   width: 100%;
   height: 100%;
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(74, 98, 138, 0.8);
+  backdrop-filter: blur(8px);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  perspective: 1000px;
 }
 
-.box-popup.show {
-  display: flex;
+.menu {
+  background: linear-gradient(135deg, #DFF2EB, #B9E5E8);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(74, 98, 138, 0.3);
+  transform-style: preserve-3d;
+  animation: floatMenu 6s ease-in-out infinite;
+  position: relative;
+  min-width: 320px;
+  overflow: hidden;
 }
 
-.show-popup {
-  padding: 10px;
-  border-radius: 14px;
-  background-color: #fff;
+.menu h1 {
+  color: #4A628A;
 }
 
 .inputTodo-list {
-  padding: 4px;
-  margin-bottom: 4px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  background-color: rgb(230, 225, 219);
-  color: black;
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 2px solid #7AB2D3;
+  border-radius: 12px;
+  background: #DFF2EB;
+  color: #4A628A;
+  font-size: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
 }
 
-.todo-button {
-  background-color: #46a44b;
-  padding: 4px;
-  border-radius: 4px;
+.inputTodo-list:focus {
+  outline: none;
+  border-color: #4A628A;
+  box-shadow: 0 0 20px rgba(122, 178, 211, 0.4);
+  transform: translateY(-4px) translateZ(30px);
+  background: white;
+}
+
+.inputTodo-list::placeholder {
+  color: #7AB2D3;
+  transition: all 0.3s ease;
+}
+
+.inputTodo-list:focus::placeholder {
+  transform: translateX(10px);
+  opacity: 0.5;
+}
+
+/* Button styles with amazing effects */
+#todo-button,
+.cancel {
+  width: 100%;
+  padding: 12px 24px;
   border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
-} 
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+#todo-button {
+  background: linear-gradient(45deg, #7AB2D3, #4A628A);
+  color: #DFF2EB;
+}
+
+.cancel {
+  background: linear-gradient(45deg, #DFF2EB, #B9E5E8);
+  color: #4A628A;
+  border: 2px solid #7AB2D3;
+}
+
+#todo-button:hover,
+.cancel:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(74, 98, 138, 0.3);
+}
+
+#todo-button:hover::before,
+.cancel:hover::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
+  animation: rippleEffect 1s ease-out;
+}
+
+.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hide-popup {
+  display: none;
+}
+
+.show-popup {
+  display: block;
+  animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.particle {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #B9E5E8, #7AB2D3);
+  animation: particleFly 0.8s ease-out forwards;
+}
+
+@keyframes floatMenu {
+
+  0%,
+  100% {
+    transform: translateY(0) rotateX(0deg);
+  }
+
+  25% {
+    transform: translateY(-10px) rotateX(2deg);
+  }
+
+  75% {
+    transform: translateY(5px) rotateX(-2deg);
+  }
+}
+
+@keyframes rippleEffect {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes particleFly {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.5) rotate(360deg) translate(var(--tx), var(--ty));
+    opacity: 0;
+  }
+}
+
+#todo-button:active,
+.cancel:active {
+  transform: scale(0.98);
+  box-shadow: 0 5px 15px rgba(74, 98, 138, 0.2);
+}
+
+.inputTodo-list:not(:placeholder-shown) {
+  background: linear-gradient(45deg, #DFF2EB, #B9E5E8);
+  border-color: #4A628A;
+}
+
+.menu::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent);
+  transform: rotate(45deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+
+  100% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #7AB2D3;
+  outline-offset: 2px;
+}
+
+.inputTodo-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.inputTodo-list::-webkit-scrollbar-track {
+  background: #DFF2EB;
+  border-radius: 4px;
+}
+
+.inputTodo-list::-webkit-scrollbar-thumb {
+  background: #7AB2D3;
+  border-radius: 4px;
+}
