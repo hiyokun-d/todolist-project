@@ -17,9 +17,13 @@ npm install
 npm run dev
 ```
 > after you change and push it to the main branch just wait
-`git push  origin {your-branch-name}`
+```sh
+git push  origin {your-branch-name}
+```
 > and then do a pull to get the latest update don't forget to change your branch
-`git checkout main && git push --delete {your-branch-name} && git pull origin` 
+```sh
+git checkout main && git push --delete {your-branch-name} && git pull origin
+```
 
 
 # TODOLIST
