@@ -3,6 +3,7 @@ const popupMenu = document.getElementById("menu")
 const containerPopup = document.getElementById("popup-container")
 const addButton = document.getElementById("todo-button");
 const cancelButton = document.querySelector(".cancel");
+const input = document.querySelector('.inputTodo-list');
 let isShowPopup = false;
 
 function showPopup(e) {
@@ -113,8 +114,6 @@ function setupButtonHover() {
 }
 
 export function addingTodo() {
-
-  const input = document.querySelector('.inputTodo-list');
   input.addEventListener('focus', () => {
     anime({
       targets: input,
@@ -139,6 +138,10 @@ export function addingTodo() {
     const particles = 12;
     const button = e.currentTarget;
     const rect = button.getBoundingClientRect();
+
+    // RESET INPUTNYA BIAR KOSONG LAGI
+    input.value = ""
+    input.innerText = ""
 
     for (let i = 0; i < particles; i++) {
       const particle = document.createElement('div');
