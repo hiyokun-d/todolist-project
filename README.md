@@ -17,13 +17,26 @@ npm install
 ```sh
 npm run dev
 ```
+## After you make a changes in code do this
+> add all of the changes
+```sh
+git add .
+```
+> commit it (STRING)
+```sh
+git commit -m "{your message it's STRING}"
+```
+> make a new branch with it
+```sh
+git checkout -b {your-branch-name}
+```
 > after you change and push it to the main branch just wait
 ```sh
 git push  origin {your-branch-name}
 ```
 > and then do a pull to get the latest update don't forget to change your branch
 ```sh
-git checkout main && git push --delete {your-branch-name} && git pull origin
+git checkout main && git pull origin
 ```
 
 
