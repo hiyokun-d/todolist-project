@@ -17,7 +17,7 @@ function showPopup(e) {
   })
     .add({
       targets: '.box-popup',
-      backgroundColor: 'rgba(74, 98, 138, 0.8)',
+      backgroundColor: 'rgba(74, 98, 20, 0.8)',
       backdropFilter: ['blur(0px)', 'blur(8px)'],
     })
     .add({
