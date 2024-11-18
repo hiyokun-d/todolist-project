@@ -38,6 +38,10 @@ git push  origin {your-branch-name}
 ```sh
 git checkout main && git pull origin
 ```
+> If you want to make a changes again just do this
+```sh
+git pull origin
+```
 
 
 # TODOLIST
