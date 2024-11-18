@@ -6,8 +6,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #7ab2d3;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -26,7 +26,7 @@ body {
 }
 
 nav {
-  background-color: #4a628a;
+  background-color: #0b9519;
   padding: 20px 40px;
   width: 100%;
   display: flex;
@@ -43,6 +43,7 @@ nav .left {
   display: flex;
   align-items: center;
   gap: 15px;
+  color: #ffffff;
 }
 
 nav .left h2 {
@@ -72,7 +73,7 @@ nav .left h2 {
 
 nav .left h2:hover {
   animation: explode 0.6s ease;
-  text-shadow: 0 0 10px #b9e5e8, 0 0 20px #b9e5e8, 0 0 30px #b9e5e8;
+  text-shadow: 0 0 10px #4fe882, 0 0 20px #b9e8bb, 0 0 30px #35c850;
 }
 
 nav .right ul {
@@ -101,17 +102,17 @@ nav .right ul li {
 
   50% {
     transform: scale(1.1) rotate(3deg);
-    background-color: #b9e5e8;
+    background-color: #b9e8bb;
   }
 
   75% {
     transform: scale(0.95) rotate(-2deg);
-    background-color: #7ab2d3;
+    background-color: #7ad386;
   }
 
   100% {
     transform: scale(1) rotate(0deg);
-    background-color: #b9e5e8;
+    background-color: #b9e8be;
   }
 }
 
@@ -135,17 +136,17 @@ nav .right ul li {
   }
 
   50% {
-    box-shadow: 0 0 20px #b9e5e8, 0 0 30px #7ab2d3;
+    box-shadow: 0 0 20px #b9e8c3, 0 0 30px #7ad384;
   }
 
   100% {
-    box-shadow: 0 0 5px #b9e5e8;
+    box-shadow: 0 0 5px #b9e8c2;
   }
 }
 
 nav .right ul li:hover {
   animation: buttonExplosion 0.6s ease forwards, glowEffect 1.5s ease infinite;
-  color: #4a628a;
+  color: #444444;
   font-weight: bold;
 }
 
@@ -217,7 +218,7 @@ nav .left h2::after {
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #b9e5e8;
+  background-color: #b9e8be;
   transition: width 0.3s ease;
 }
 
@@ -235,7 +236,7 @@ nav .left h2:hover {
 @keyframes clickBurst {
   0% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 #b9e5e8;
+    box-shadow: 0 0 0 0 #b9e8c7;
   }
 
   30% {
@@ -270,13 +271,13 @@ nav .left h2:hover {
   0% {
     transform: scale(1);
     opacity: 1;
-    border: 2px solid #b9e5e8;
+    border: 2px solid #b9e8be;
   }
 
   100% {
     transform: scale(2);
     opacity: 0;
-    border: 2px solid #7ab2d3;
+    border: 2px solid #7ad38a;
   }
 }
 
@@ -293,7 +294,7 @@ nav .right ul li .ripple {
   transform: translate(-50%, -50%) scale(0);
   width: 5px;
   height: 5px;
-  background: #b9e5e8;
+  background: #b9e8c1;
   border-radius: 50%;
   opacity: 0;
   pointer-events: none;
@@ -599,7 +600,7 @@ nav .right ul li:active::after {
 }
 
 .menu {
-  background: linear-gradient(135deg, #DFF2EB, #B9E5E8);
+  background: linear-gradient(135deg, #6effa1, #269819);
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0 15px 35px rgba(74, 98, 138, 0.3);
@@ -611,17 +612,17 @@ nav .right ul li:active::after {
 }
 
 .menu h1 {
-  color: #4A628A;
+  color: #ffffff;
 }
 
 .inputTodo-list {
   width: 100%;
   padding: 15px;
   margin-bottom: 20px;
-  border: 2px solid #7AB2D3;
+  border: 2px solid #98f49d;
   border-radius: 12px;
-  background: #DFF2EB;
-  color: #4A628A;
+  background: #dff2e3;
+  color: #4a8a4e;
   font-size: 16px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
@@ -629,14 +630,14 @@ nav .right ul li:active::after {
 
 .inputTodo-list:focus {
   outline: none;
-  border-color: #4A628A;
-  box-shadow: 0 0 20px rgba(122, 178, 211, 0.4);
+  border-color: #4a8a5c;
+  box-shadow: 0 0 20px rgba(122, 211, 137, 0.4);
   transform: translateY(-4px) translateZ(30px);
   background: white;
 }
 
 .inputTodo-list::placeholder {
-  color: #7AB2D3;
+  color: #a1a1a1;
   transition: all 0.3s ease;
 }
 
@@ -662,14 +663,14 @@ nav .right ul li:active::after {
 }
 
 #todo-button {
-  background: linear-gradient(45deg, #7AB2D3, #4A628A);
+  background: linear-gradient(45deg, #18bb36, #19610d);
   color: #DFF2EB;
 }
 
 .cancel {
-  background: linear-gradient(45deg, #DFF2EB, #B9E5E8);
-  color: #4A628A;
-  border: 2px solid #7AB2D3;
+  background: linear-gradient(45deg, #70f17f, #b9e8c2);
+  color: #4b8a4a;
+  border: 2px solid #7dd37a;
 }
 
 #todo-button:hover,
@@ -772,7 +773,7 @@ nav .right ul li:active::after {
 
 .inputTodo-list:not(:placeholder-shown) {
   background: linear-gradient(45deg, #DFF2EB, #B9E5E8);
-  border-color: #4A628A;
+  border-color: #4a8a56;
 }
 
 .menu::after {
@@ -816,6 +817,6 @@ input:focus-visible {
 }
 
 .inputTodo-list::-webkit-scrollbar-thumb {
-  background: #7AB2D3;
+  background: #7ad395;
   border-radius: 4px;
 }
