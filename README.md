@@ -4,6 +4,7 @@ So this is a project where me and my friend make a project to learn Javascript a
 we're Binusian student on computer science major
 
 ## Setup
+> Install git first if you don't have one (GIT)[https://git-scm.com/downloads]
 > Clone this project
 ```sh
 git clone (the url)
