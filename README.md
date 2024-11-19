@@ -50,3 +50,5 @@ git pull origin
 - [] GO OUT WITH THE GIRLS
 - [] LOVE IT
 
+## FUTURE IDEA
+- ini template ide (nama lu siapa)
