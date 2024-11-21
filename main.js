@@ -10,6 +10,7 @@ const addButton = document.getElementById("todo-button")
 // todo.generate()
 // console.log(list_arr)
 
+// kalo ada notifikasi baru gitu bikinnya pake ini aja aowaowkawokawok
 showNotification("Apakabar bang", {
   description: "ini cuman dummy notification doang awokaowkaowk",
   buttons: [{
@@ -20,7 +21,13 @@ showNotification("Apakabar bang", {
     name: "button2",
     class: "secondary-button"
   }
+  ],
+
+  buttonAction: [
+    () => console.log("KONTOL"),
+    () => console.log("MEMK")
   ]
+
 })
 
 //TODO: NGESAVE SEMUA TODOLIST DISAAT PENDUKUNG PRABOWO OKE OKE GAS KAU MALAH NGESAVE DATA USER ITU GAK RESPECT BANGET PEN

@@ -14,6 +14,221 @@
      </div>
   */
 
+import anime from "animejs";
+
+const elContainer = document.getElementById("todo-notification-container");
+
+// initParticleBackground(elContainer);
+const elTitle = document.getElementById("todo-notification-title");
+const elDescription = document.getElementById("description");
+const elButtonsDiv = document.getElementById("buttons-notification");
+const elTodoNotificationExit = document.getElementById("todo-notification-exit");
+
+function initParticleBackground(container) {
+  const particleContainer = document.createElement('div');
+  particleContainer.style.position = 'absolute';
+  particleContainer.style.top = '0';
+  particleContainer.style.left = '0';
+  particleContainer.style.width = '100%';
+  particleContainer.style.height = '100%';
+  particleContainer.style.overflow = 'hidden';
+  particleContainer.style.pointerEvents = 'none';
+  container.appendChild(particleContainer);
+
+  const colors = ['#4ecdc4', '#ff6b6b', '#f9d56e', '#ff9ff3'];
+  const createExplosiveParticles = (x, y) => {
+    const particleCount = 20;
+
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.style.position = 'absolute';
+      particle.style.left = `${x}px`;
+      particle.style.top = `${y}px`;
+      particle.style.width = `${anime.random(4, 15)}px`;
+      particle.style.height = `${anime.random(4, 15)}px`;
+      particle.style.borderRadius = '50%';
+      particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      particleContainer.appendChild(particle);
+
+      anime({
+        targets: particle,
+        translateX: () => anime.random(-300, 300),
+        translateY: () => anime.random(-300, 300),
+        scale: [1, anime.random(0.1, 2)],
+        opacity: [1, 0],
+        rotate: () => anime.random(-360, 360),
+        duration: anime.random(800, 1500),
+        easing: 'easeOutQuad',
+        complete: () => particle.remove()
+      });
+    }
+  };
+
+  // Continuous background particles
+  const createConstantParticles = () => {
+    const particle = document.createElement('div');
+    particle.style.position = 'absolute';
+    particle.style.left = `${anime.random(0, container.offsetWidth)}px`;
+    particle.style.top = `${anime.random(0, container.offsetHeight)}px`;
+    particle.style.width = `${anime.random(2, 8)}px`;
+    particle.style.height = `${anime.random(2, 8)}px`;
+    particle.style.borderRadius = '50%';
+    particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    particleContainer.appendChild(particle);
+
+    anime({
+      targets: particle,
+      translateX: () => anime.random(-50, 50),
+      translateY: () => anime.random(-50, 50),
+      scale: [0, 1, 0],
+      opacity: [0.3, 0.7, 0],
+      duration: anime.random(2000, 4000),
+      easing: 'easeInOutQuad',
+      complete: () => particle.remove()
+    });
+  };
+
+  // Periodic constant particles
+  setInterval(createConstantParticles, 500);
+
+  // Attach explosion to container interactions
+  container.addEventListener('click', (e) => {
+    const rect = container.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    createExplosiveParticles(x, y);
+  });
+
+  // Initial explosion
+  createExplosiveParticles(
+    container.offsetWidth / 2,
+    container.offsetHeight / 2
+  );
+}
+
+function setupButtonAnimations(buttons, closeButton) {
+  // Close button with intense animation
+  closeButton.addEventListener('mouseenter', () => {
+    anime({
+      targets: closeButton,
+      scale: [1, 1.3, 1],
+      rotate: [0, 15, -15, 0],
+      duration: 500,
+      easing: 'easeInOutElastic(1, 0.6)'
+    });
+  });
+
+  closeButton.addEventListener('click', (e) => {
+    const colors = ['#ff6b6b', '#ff9ff3', '#4ecdc4'];
+
+    // Explosive close button effect
+    for (let i = 0; i < 50; i++) {
+      const particle = document.createElement('div');
+      particle.style.position = 'absolute';
+      particle.style.width = `${Math.random() * 15}px`;
+      particle.style.height = `${Math.random() * 15}px`;
+      particle.style.borderRadius = '50%';
+      particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+      e.target.appendChild(particle);
+
+      anime({
+        targets: particle,
+        translateX: () => anime.random(-200, 200),
+        translateY: () => anime.random(-200, 200),
+        scale: [1, 0],
+        opacity: [1, 0],
+        rotate: () => anime.random(-360, 360),
+        duration: 1000,
+        easing: 'easeOutQuad',
+        complete: () => particle.remove()
+      });
+    }
+  });
+
+  // Animate other buttons
+  buttons.forEach(button => {
+    button.addEventListener('mouseenter', () => {
+      anime({
+        targets: button,
+        scale: [1, 1.1],
+        rotate: [0, 5, -5, 0],
+        duration: 300,
+        easing: 'easeInOutQuad'
+      });
+    });
+
+    button.addEventListener('mouseleave', () => {
+      anime({
+        targets: button,
+        scale: [1.1, 1],
+        rotate: 0,
+        duration: 300,
+        easing: 'easeInOutQuad'
+      });
+    });
+
+    button.addEventListener('click', (e) => {
+      const colors = ['#4ecdc4', '#ff6b6b', '#f9d56e'];
+
+      // Click explosion effect
+      for (let i = 0; i < 30; i++) {
+        const particle = document.createElement('div');
+        particle.style.position = 'absolute';
+        particle.style.width = `${Math.random() * 10}px`;
+        particle.style.height = `${Math.random() * 10}px`;
+        particle.style.borderRadius = '50%';
+        particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+        e.target.appendChild(particle);
+
+        anime({
+          targets: particle,
+          translateX: () => anime.random(-100, 100),
+          translateY: () => anime.random(-100, 100),
+          scale: [1, 0],
+          opacity: [1, 0],
+          rotate: () => anime.random(-360, 360),
+          duration: 800,
+          easing: 'easeOutQuad',
+          complete: () => particle.remove()
+        });
+      }
+    });
+  });
+}
+
+let closingNotif;
+/*
+ * For closing the notification we can use this
+ * */
+export const closeNotification = () => {
+  elContainer.classList.add("close")
+  clearTimeout(closingNotif)
+
+  anime({
+    targets: elContainer,
+    transformOrigin: "30% -100%",
+    overflow: "hidden",
+    keyframes: [
+      { height: 70, width: 100, duration: 600, easing: "easeOutBounce" },
+      {
+        rotate: [0, 90],
+        duration: 800,
+        delay: 100,
+        easing: 'easeInOutElastic'
+      },
+      {
+        translateX: [0, "-100%"],
+        duration: 500,
+        delay: 200,
+        easing: 'easeInBack'
+      }
+    ],
+    autoplay: true
+  });
+}
+
 /**
  * Displays a notification with customizable title, description, buttons, and actions.
  *
@@ -39,61 +254,56 @@
  *   ]
  * });
  */
+export function showNotification(title, {
+  description,
+  buttons = [],
+  buttonAction = [],
+  duration = 9000
+} = {}) {
 
-export function showNotification(title, { description, buttons = [], buttonAction = [], duration } = {}) {
-  const elContainer = document.getElementById("todo-notification-container");
-  elContainer.classList.remove("close");
+  // Reset and prepare container
+  elContainer.style.opacity = 0;
+  elContainer.style.transform = 'translateX(-100%) rotate(-15deg)';
 
-
-  if (!elContainer) {
-    console.error("Notification container element not found. Ensure that an element with ID 'todo-notification-container' exists in the DOM.");
-    return;
-  }
-
-  elContainer.classList.remove("close");
-  const elTitle = document.getElementById("todo-notification-title");
-  const elDescription = document.getElementById("description");
-  const elButtonsDiv = document.getElementById("buttons-notification");
-  const elTodoNotificationExit = document.getElementById("todo-notification-exit")
-
-  if (!elTitle || !elDescription || !elButtonsDiv) {
-    console.error("One or more notification elements (title, description, buttons) not found in the DOM.");
-    return;
-  }
-
+  // Set content
   elTitle.innerText = title;
+  elDescription.innerText = description || "";
+  elDescription.classList.toggle("hide", !description);
 
-  if (description) {
-    elDescription.classList.remove("hide");
-    elDescription.innerText = description || "";
-  } else {
-    elDescription.classList.add("hide");
-  }
-
+  // Clear previous buttons
   elButtonsDiv.innerHTML = "";
-  if (buttons.length > 0) {
-    buttons.forEach((buttonObj, index) => {
-      const button = document.createElement("button")
-      if (buttonObj && buttonObj.name) {
-        button.innerText = buttonObj.name;
-        if (buttonObj.class) {
-          button.className = buttonObj.class;
-        }
-      }
 
-      if (buttonAction[index]) {
-        button.addEventListener("click", buttonAction[index])
-      }
+  // Create buttons with explosive animations
+  const buttonElements = [];
+  buttons.forEach((buttonObj, index) => {
+    const button = document.createElement("button");
+    button.innerText = buttonObj.name || "Button";
+    button.className = buttonObj.class || "";
 
-      elButtonsDiv.appendChild(button)
-    })
-  }
+    if (buttonAction[index]) {
+      button.addEventListener("click", (e) => {
+        buttonAction[index](e);
+      });
+    }
 
-  let valueDuration = duration || 8000
-  elTodoNotificationExit.addEventListener("click", () => {
-    valueDuration = 0
-    elContainer.classList.add("close")
+    elButtonsDiv.appendChild(button);
+    buttonElements.push(button);
+  });
+  setupButtonAnimations(buttonElements, elTodoNotificationExit);
+
+  // Entrance animation with multiple effects
+  anime.timeline({
+    targets: elContainer,
+    easing: 'easeOutExpo'
   })
+    .add({
+      opacity: [0, 1],
+      translateX: ['-100%', '0%'],
+      rotate: [-15, 0],
+      duration: 1200,
+    });
 
-  setTimeout(() => elContainer.classList.add("close"), valueDuration)
+  elTodoNotificationExit.addEventListener("click", closeNotification);
+
+  closingNotif = setTimeout(closeNotification, duration);
 }

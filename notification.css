@@ -1,73 +1,127 @@
+:root {
+  --neon-primary: #4ecdc4;
+  --neon-secondary: #ff6b6b;
+  --deep-dark: #1a1a2e;
+  --vibrant-shadow: rgba(78, 205, 196, 0.4);
+}
+
 .todo-notification {
-  background-color: #a7c8cf;
   position: fixed;
-  bottom: 10px;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0px 6px 7px black;
-  transition: all 0.5s ease;
-  color: black;
-  transition: transform .5s cubic-bezier(.24, .13, .39, 1.69);
-  transform: translatey(0px);
-  max-width: 300px;
-  max-height: 200px;
-  overflow: scroll;
+  left: 20px;
+  bottom: 20px;
+  background: linear-gradient(135deg, var(--neon-primary), var(--neon-secondary));
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 350px;
+  min-width: 280px;
+  box-shadow:
+    0 15px 30px var(--vibrant-shadow),
+    0 0 20px rgba(255, 107, 107, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transform-origin: bottom left;
+  overflow: hidden;
+  color: white;
 }
 
-.todo-notification.close {
-  transition: transform .5s cubic-bezier(.65, -0.52, .38, .12);
-  transform: translatey(500px)
+.todo-notification::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 70%);
+  animation: pulse-glow 3s infinite alternate;
+  opacity: 0.5;
 }
 
-.todo-notification .todo-notification-header {
+@keyframes pulse-glow {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.4;
+  }
+
+  100% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+}
+
+.todo-notification-header {
   display: flex;
   justify-content: space-between;
-  gap: 30px;
-}
-
-.todo-notification p {
-  margin-top: 5px;
+  align-items: center;
   margin-bottom: 15px;
 }
 
-.todo-notification button {
-  border: none;
-  border-radius: 5px;
+.todo-notification-header h3 {
+  margin: 0;
+  font-size: 1.4em;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
 }
 
 .todo-notification-exit {
-  width: 20px;
-  height: 20px;
-  font-size: 15px;
-  background-color: black;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
 }
 
 .todo-notification-buttons {
   display: flex;
-  justify-content: space-evenly;
+  gap: 10px;
+  margin-top: 15px;
 }
 
 .todo-notification-buttons button {
-  width: 70px;
-  height: 30px;
+  flex-grow: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  z-index: 1;
+  /* Ensure the button is clickable */
 }
 
-.hide {
-  display: none;
+.todo-notification-buttons button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: all 0.5s ease;
+  z-index: -1;
+  /* Ensure the pseudo-element is below the button */
+}
+
+.todo-notification-buttons button:hover::before {
+  left: 100%;
 }
 
 .primary-button {
-  background-color: #50ad6a;
+  background-color: #4ecdc4;
+  box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
 }
 
 .secondary-button {
-  background-color: #c7584a;
-}
-
-.yellow-button {
-  background-color: #bab854;
-}
-
-.black-button {
-  background-color: #262621;
+  background-color: #ff6b6b;
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
 }
