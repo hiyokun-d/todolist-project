@@ -200,6 +200,7 @@ function setupButtonAnimations(buttons, closeButton) {
 
 let closingNotif;
 const autoHeight = elContainer.scrollHeight;
+const autoWidth = elContainer.scrollWidth;
 
 /*
  * For closing the notification we can use this
@@ -221,9 +222,9 @@ export const closeNotification = () => {
       easing: "easeInOutCubic",
     })
     .add({
-      width: [100, 70],  // Shrink the width (optional)
-      duration: 400,
-      easing: "easeOutBounce",
+      width: [autoWidth, 70],  // Shrink the width (optional)
+      duration: 800,
+      easing: "easeInOutCubic",
     })
     .add({
       rotate: [0, 90],

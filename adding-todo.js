@@ -1,6 +1,7 @@
 import anime from "animejs";
 import { showNotification } from "./notification";
 import { Todo } from "./listComponents";
+import { updateCookie } from "./cookie";
 
 const popupMenu = document.getElementById("menu")
 const containerPopup = document.getElementById("popup-container")
@@ -130,6 +131,7 @@ const addingnewTodo = () => {
   showNotification("SUCCESS!", { duration: 1500 });
   todo.generate();
   hidePopup();
+  updateCookie();
 }
 
 input.addEventListener("keypress", (event) => {

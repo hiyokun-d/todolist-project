@@ -1,11 +1,13 @@
+import { updateCookie } from "./cookie";
+
 // untuk nyimpen ID, TITLE dan sebagainya supaya bisa di akses lagi
 export let list_arr = [
-  {
-    id: "A321",
-    title: "TEST_TITLE",
-    description: "lorem ipsum dolor kontol kau panjang",
-    date: new Date().toDateString()
-  }
+  // {
+  //   id: "A321",
+  //   title: "TEST_TITLE",
+  //   description: "lorem ipsum dolor ",
+  //   date: new Date().toDateString()
+  // }
 ]
 
 /**
@@ -44,7 +46,7 @@ export class Todo {
    * @param {Array} [arr_todo=[]] - Array untuk menyimpan elemen todo yang dihasilkan.
    * @returns {HTMLElement}
    */
-  generate() {
+  generate(oldDate) {
     // Kode untuk menghasilkan elemen todo baru dan menambahkannya ke arr_todo
     const date = new Date().toLocaleString();
     const containerTodo = document.getElementById("containerTodo")
@@ -53,10 +55,11 @@ export class Todo {
     const newElement = document.createElement("div")
 
     // baru kita isi dengan element yang kita mau
+    console.log(oldDate)
     newElement.innerHTML = `
          <label for="todoContainer">
           <h3>${this.input}</h3>
-          <p class="date">${date}</p>
+          <p class="date">${oldDate ? oldDate : date}</p>
         </label>
         <input name="todoContainer" type="checkbox" id=${this.id} class="todo-checkbox">
       `
@@ -67,10 +70,13 @@ export class Todo {
     newElement.id = this.id;
 
     containerTodo.appendChild(newElement)
-    list_arr.push({
-      id: this.id,
-      title: this.input,
-      date
-    })
+    if (!list_arr.some(item => item.id === this.id)) {
+      list_arr.push({
+        id: this.id,
+        title: this.input,
+        date
+      });
+      updateCookie(); // Update cookie only when adding new item
+    }
   }
 }
