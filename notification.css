@@ -125,3 +125,8 @@
   background-color: #ff6b6b;
   box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
 }
+
+.yellow-button {
+  background-color: #ccae5a;
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}

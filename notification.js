@@ -199,35 +199,45 @@ function setupButtonAnimations(buttons, closeButton) {
 }
 
 let closingNotif;
+const autoHeight = elContainer.scrollHeight;
+
 /*
  * For closing the notification we can use this
  * */
 export const closeNotification = () => {
-  elContainer.classList.add("close")
-  clearTimeout(closingNotif)
+  elContainer.classList.add("close");
+  clearTimeout(closingNotif);
 
-  anime({
+  anime.timeline({
     targets: elContainer,
+    easing: "easeInOutQuad",
     transformOrigin: "30% -100%",
-    overflow: "hidden",
-    keyframes: [
-      { height: 70, width: 100, duration: 600, easing: "easeOutBounce" },
-      {
-        rotate: [0, 90],
-        duration: 800,
-        delay: 100,
-        easing: 'easeInOutElastic'
-      },
-      {
-        translateX: [0, "-100%"],
-        duration: 500,
-        delay: 200,
-        easing: 'easeInBack'
-      }
-    ],
-    autoplay: true
-  });
-}
+    autoplay: true,
+    duration: 500, // Adjust as needed
+  })
+    .add({
+      height: [autoHeight, 80],  // Smoothly collapse the height to 0
+      duration: 600,
+      easing: "easeInOutCubic",
+    })
+    .add({
+      width: [100, 70],  // Shrink the width (optional)
+      duration: 400,
+      easing: "easeOutBounce",
+    })
+    .add({
+      rotate: [0, 90],
+      duration: 800,
+      delay: 100,
+      easing: 'easeInOutElastic'
+    })
+    .add({
+      translateX: [0, "-100%"],
+      duration: 500,
+      delay: 200,
+      easing: 'easeInBack'
+    });
+};
 
 /**
  * Displays a notification with customizable title, description, buttons, and actions.
@@ -294,16 +304,21 @@ export function showNotification(title, {
   // Entrance animation with multiple effects
   anime.timeline({
     targets: elContainer,
-    easing: 'easeOutExpo'
+    easing: 'easeOutExpo',
+    duration: 1200,
   })
     .add({
       opacity: [0, 1],
       translateX: ['-100%', '0%'],
       rotate: [-15, 0],
-      duration: 1200,
+      duration: 600,
+    })
+    .add({
+      height: [80, autoHeight],  // Animate height from 0 to auto height
+      duration: 300,
+      easing: 'easeOutExpo',
     });
 
   elTodoNotificationExit.addEventListener("click", closeNotification);
-
   closingNotif = setTimeout(closeNotification, duration);
 }

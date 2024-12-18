@@ -25,6 +25,14 @@ body {
   margin: 0;
 }
 
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  cursor: default;
+}
+
 nav {
   background-color: #0b9519;
   padding: 20px 40px;

@@ -1,4 +1,7 @@
 import anime from "animejs";
+import { showNotification } from "./notification";
+import { Todo } from "./listComponents";
+
 const popupMenu = document.getElementById("menu")
 const containerPopup = document.getElementById("popup-container")
 const addButton = document.getElementById("todo-button");
@@ -39,7 +42,7 @@ function showPopup(e) {
 
 function hidePopup(e) {
   anime.timeline({
-    duration: 600,
+    duration: 400,
     easing: 'easeInOutQuad'
   })
     .add({
@@ -47,7 +50,7 @@ function hidePopup(e) {
       translateX: [0, 30],
       opacity: [1, 0],
       delay: anime.stagger(50, { direction: 'reverse' }),
-      duration: 400,
+      duration: 500,
     })
     .add({
       targets: '.menu',
@@ -55,7 +58,7 @@ function hidePopup(e) {
       scale: [1, 0.8],
       opacity: [1, 0],
       rotate: [0, 10],
-      duration: 500,
+      duration: 433,
     }, '-=200')
     .add({
       targets: '.box-popup',
@@ -112,6 +115,29 @@ function setupButtonHover() {
     });
   });
 }
+
+const addingnewTodo = () => {
+  const value = input.value
+  if (!value) {
+    showNotification("FAILED!", {
+      description: "Your input must be not empty don't be stupid!",
+      duration: 3500
+    })
+    return;
+  }
+
+  const todo = new Todo(value);
+  showNotification("SUCCESS!", { duration: 1500 });
+  todo.generate();
+  hidePopup();
+}
+
+input.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    console.log("Hello World!");
+    addingnewTodo();
+  }
+});
 
 export function addingTodo() {
   input.addEventListener('focus', () => {
@@ -170,6 +196,9 @@ export function addingTodo() {
       hidePopup(e)
     }
   });
+
+  addButton.addEventListener("click", addingnewTodo)
+
   cancelButton.addEventListener("click", hidePopup)
   setupButtonHover()
 }
