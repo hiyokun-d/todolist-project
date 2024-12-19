@@ -31,26 +31,33 @@ function initializeTodoList() {
 }
 
 initializeTodoList()
-
 addingTodo()
 
 function updateTodoPage() {
   list_arr.forEach((main) => {
     const generatingTodo = new Todo(main.title);
-    generatingTodo.generate(main.date);
+    generatingTodo.deadline("H441");
+    // generatingTodo.delete("T562")
   })
+}
+
+updateTodoPage()
+
+function deleteTodoPage() {
+  showNotification("Deleting the Cookie!", {
+    description: "to update the cookie just simply reload the page again!",
+    duration: 1200
+  })
+
+  list_arr.length = 0;
+  deleteCookie("user-todo")
+  updateTodoPage();
+  const containerTodo = document.getElementById("containerTodo")
+  containerTodo.innerHTML = ""
 }
 
 document.addEventListener("keypress", (event) => {
   if (event.key == "~") {
-    showNotification("Deleting the Cookie!", {
-      description: "to update the cookie just simply reload the page again!",
-      duration: 1200
-    })
-    list_arr.length = 0;
-    deleteCookie("user-todo")
-    updateTodoPage();
-    const containerTodo = document.getElementById("containerTodo")
-    containerTodo.innerHTML = ""
+    deleteTodoPage()
   }
 })

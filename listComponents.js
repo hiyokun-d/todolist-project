@@ -7,6 +7,7 @@ export let list_arr = [
   //   title: "TEST_TITLE",
   //   description: "lorem ipsum dolor ",
   //   date: new Date().toDateString()
+  //   deadline: "9 days"
   // }
 ]
 
@@ -44,9 +45,10 @@ export class Todo {
   /**
    * Menghasilkan elemen todo baru dengan gaya dan class yang sama, lalu menambahkannya ke array todos.
    * @param {Array} [arr_todo=[]] - Array untuk menyimpan elemen todo yang dihasilkan.
+   * @param {Date} [deadline] - Pastikan user mengirimkan date yang bener 
    * @returns {HTMLElement}
    */
-  generate(oldDate) {
+  generate(oldDate,) {
     // Kode untuk menghasilkan elemen todo baru dan menambahkannya ke arr_todo
     const date = new Date().toLocaleString();
     const containerTodo = document.getElementById("containerTodo")
@@ -61,7 +63,11 @@ export class Todo {
           <h3>${this.input}</h3>
           <p class="date">${oldDate ? oldDate : date}</p>
         </label>
-        <input name="todoContainer" type="checkbox" id=${this.id} class="todo-checkbox">
+        <div class="todo-input">
+          <input name="todoContainer" type="checkbox" id=${this.id} class="todo-checkbox">
+          <button>delete</button>
+        </div>
+
       `
 
     // kita tambahin class untuk stylingnya ama ID buat mudahin ntar kalo mau nambah delete ama checkboxnya aowkoawkaowk
@@ -74,9 +80,22 @@ export class Todo {
       list_arr.push({
         id: this.id,
         title: this.input,
-        date
+        date,
+        // deadlineDate
       });
       updateCookie(); // Update cookie only when adding new item
     }
+  }
+
+  deadline(id) {
+    const element = document.getElementById(id);
+    if (element)
+      element.classList.add("deadline");
+    else throw new Error(`the element with an id ${id} is not found!`);
+  }
+
+  delete(id) {
+    const deleteElement = document.getElementById(id);
+    deleteElement.remove()
   }
 }
