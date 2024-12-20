@@ -1,1129 +1,1137 @@
 /* NOTES: color-pallete= https://colorhunt.co/palette/dff2ebb9e5e87ab2d34a628a */
 
 :root {
-	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-	line-height: 1.5;
-	font-weight: 400;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
 
-	color-scheme: light dark;
-	color: rgba(0, 0, 0, 0.87);
-	background-color: #ffffff;
+  color-scheme: light dark;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #ffffff;
 
-	font-synthesis: none;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-	margin: 0;
+  margin: 0;
 }
 
 .no-select {
-	user-select: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  cursor: default;
 }
 
 nav {
-	background-color: #0b9519;
-	padding: 20px 40px;
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	box-shadow: 0 2px 15px rgba(74, 98, 138, 0.3);
-	position: relative;
-	transition: all 0.3s ease;
-	cursor: default;
-	user-select: none;
+  background-color: #0b9519;
+  padding: 20px 40px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 15px rgba(74, 98, 138, 0.3);
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: default;
+  user-select: none;
 }
 
 nav .left {
-	display: flex;
-	align-items: center;
-	gap: 15px;
-	color: #ffffff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  text-align: center;
+  color: #ffffff;
+}
+
+nav .left p {
+  font-size: 12px;
+  color: #98f49d;
+  font-weight: bold;
+  opacity: 41%;
+  transition: opacity 0.3s ease;
 }
 
 nav .left h2 {
-	color: #dff2eb;
-	font-size: 24px;
-	position: relative;
-	transition: all 0.3s ease;
+  color: #dff2eb;
+  font-size: 24px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+nav .left:hover p {
+  opacity: 1;
 }
 
 @keyframes explode {
-	0% {
-		transform: scale(1);
-	}
+  0% {
+    transform: scale(1);
+  }
 
-	50% {
-		transform: scale(1.2);
-	}
+  50% {
+    transform: scale(1.2);
+  }
 
-	75% {
-		transform: scale(0.9);
-	}
+  75% {
+    transform: scale(0.9);
+  }
 
-	100% {
-		transform: scale(1);
-	}
+  100% {
+    transform: scale(1);
+  }
 }
 
 nav .left h2:hover {
-	animation: explode 0.6s ease;
-	text-shadow: 0 0 10px #4fe882, 0 0 20px #b9e8bb, 0 0 30px #35c850;
+  animation: explode 0.6s ease;
+  text-shadow: 0 0 10px #4fe882, 0 0 20px #b9e8bb, 0 0 30px #35c850;
 }
 
 nav .right ul {
-	display: flex;
-	list-style: none;
-	gap: 25px;
-	cursor: pointer;
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  cursor: pointer;
 }
 
 nav .right ul li {
-	color: #dff2eb;
-	cursor: pointer;
-	position: relative;
-	padding: 8px 15px;
-	transition: all 0.3s ease;
-	border-radius: 8px;
-	overflow: hidden;
+  color: #dff2eb;
+  cursor: pointer;
+  position: relative;
+  padding: 8px 15px;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 /* Super fun hover effects for menu items */
 @keyframes buttonExplosion {
-	0% {
-		transform: scale(1);
-		background-color: transparent;
-	}
+  0% {
+    transform: scale(1);
+    background-color: transparent;
+  }
 
-	50% {
-		transform: scale(1.1) rotate(3deg);
-		background-color: #b9e8bb;
-	}
+  50% {
+    transform: scale(1.1) rotate(3deg);
+    background-color: #b9e8bb;
+  }
 
-	75% {
-		transform: scale(0.95) rotate(-2deg);
-		background-color: #7ad386;
-	}
+  75% {
+    transform: scale(0.95) rotate(-2deg);
+    background-color: #7ad386;
+  }
 
-	100% {
-		transform: scale(1) rotate(0deg);
-		background-color: #b9e8be;
-	}
+  100% {
+    transform: scale(1) rotate(0deg);
+    background-color: #b9e8be;
+  }
 }
 
 @keyframes textPop {
-	0% {
-		transform: scale(1);
-	}
+  0% {
+    transform: scale(1);
+  }
 
-	50% {
-		transform: scale(1.2);
-	}
+  50% {
+    transform: scale(1.2);
+  }
 
-	100% {
-		transform: scale(1);
-	}
+  100% {
+    transform: scale(1);
+  }
 }
 
 @keyframes glowEffect {
-	0% {
-		box-shadow: 0 0 5px #b9e5e8;
-	}
+  0% {
+    box-shadow: 0 0 5px #b9e5e8;
+  }
 
-	50% {
-		box-shadow: 0 0 20px #b9e8c3, 0 0 30px #7ad384;
-	}
+  50% {
+    box-shadow: 0 0 20px #b9e8c3, 0 0 30px #7ad384;
+  }
 
-	100% {
-		box-shadow: 0 0 5px #b9e8c2;
-	}
+  100% {
+    box-shadow: 0 0 5px #b9e8c2;
+  }
 }
 
 nav .right ul li:hover {
-	animation: buttonExplosion 0.6s ease forwards, glowEffect 1.5s ease infinite;
-	color: #444444;
-	font-weight: bold;
+  animation: buttonExplosion 0.6s ease forwards, glowEffect 1.5s ease infinite;
+  color: #444444;
+  font-weight: bold;
 }
 
 /* Creating particles effect on hover */
 nav .right ul li::before,
 nav .right ul li::after {
-	content: "";
-	position: absolute;
-	width: 8px;
-	height: 8px;
-	background: #dff2eb;
-	border-radius: 50%;
-	opacity: 0;
-	transition: all 0.5s ease;
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #dff2eb;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.5s ease;
 }
 
 nav .right ul li::before {
-	left: -20px;
-	top: 50%;
+  left: -20px;
+  top: 50%;
 }
 
 nav .right ul li::after {
-	right: -20px;
-	top: 50%;
+  right: -20px;
+  top: 50%;
 }
 
 nav .right ul li:hover::before {
-	animation: particleLeft 0.8s ease;
-	opacity: 1;
+  animation: particleLeft 0.8s ease;
+  opacity: 1;
 }
 
 nav .right ul li:hover::after {
-	animation: particleRight 0.8s ease;
-	opacity: 1;
+  animation: particleRight 0.8s ease;
+  opacity: 1;
 }
 
 @keyframes particleLeft {
-	0% {
-		left: 50%;
-		top: 50%;
-		opacity: 1;
-	}
+  0% {
+    left: 50%;
+    top: 50%;
+    opacity: 1;
+  }
 
-	100% {
-		left: -20px;
-		top: -10px;
-		opacity: 0;
-	}
+  100% {
+    left: -20px;
+    top: -10px;
+    opacity: 0;
+  }
 }
 
 @keyframes particleRight {
-	0% {
-		right: 50%;
-		top: 50%;
-		opacity: 1;
-	}
+  0% {
+    right: 50%;
+    top: 50%;
+    opacity: 1;
+  }
 
-	100% {
-		right: -20px;
-		top: -10px;
-		opacity: 0;
-	}
+  100% {
+    right: -20px;
+    top: -10px;
+    opacity: 0;
+  }
 }
 
 nav .left h2::after {
-	content: "";
-	position: absolute;
-	bottom: -5px;
-	left: 0;
-	width: 0;
-	height: 2px;
-	background-color: #b9e8be;
-	transition: width 0.3s ease;
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #b9e8be;
+  transition: width 0.3s ease;
 }
 
 nav .left h2:hover::after {
-	width: 100%;
+  width: 100%;
 }
 
 /* Remove previous app name hover animation */
 nav .left h2:hover {
-	animation: none;
-	text-shadow: none;
+  animation: none;
+  text-shadow: none;
 }
 
 /* SUPER EXCITING click animations for buttons! */
 @keyframes clickBurst {
-	0% {
-		transform: scale(0.95);
-		box-shadow: 0 0 0 0 #b9e8c7;
-	}
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 #b9e8c7;
+  }
 
-	30% {
-		transform: scale(1.05) rotate(5deg);
-		box-shadow: 0 0 0 10px rgba(185, 229, 232, 0);
-	}
+  30% {
+    transform: scale(1.05) rotate(5deg);
+    box-shadow: 0 0 0 10px rgba(185, 229, 232, 0);
+  }
 
-	60% {
-		transform: scale(0.97) rotate(-3deg);
-		box-shadow: 0 0 0 20px rgba(185, 229, 232, 0);
-	}
+  60% {
+    transform: scale(0.97) rotate(-3deg);
+    box-shadow: 0 0 0 20px rgba(185, 229, 232, 0);
+  }
 
-	100% {
-		transform: scale(1) rotate(0);
-		box-shadow: 0 0 0 0 rgba(185, 229, 232, 0);
-	}
+  100% {
+    transform: scale(1) rotate(0);
+    box-shadow: 0 0 0 0 rgba(185, 229, 232, 0);
+  }
 }
 
 @keyframes rippleEffect {
-	0% {
-		transform: scale(0);
-		opacity: 1;
-	}
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
 
-	100% {
-		transform: scale(4);
-		opacity: 0;
-	}
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
 }
 
 @keyframes shockwave {
-	0% {
-		transform: scale(1);
-		opacity: 1;
-		border: 2px solid #b9e8be;
-	}
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    border: 2px solid #b9e8be;
+  }
 
-	100% {
-		transform: scale(2);
-		opacity: 0;
-		border: 2px solid #7ad38a;
-	}
+  100% {
+    transform: scale(2);
+    opacity: 0;
+    border: 2px solid #7ad38a;
+  }
 }
 
 /* Add new pseudo-elements for click effects */
 nav .right ul li span {
-	position: relative;
-	z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
 nav .right ul li .ripple {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%) scale(0);
-	width: 5px;
-	height: 5px;
-	background: #b9e8c1;
-	border-radius: 50%;
-	opacity: 0;
-	pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 5px;
+  height: 5px;
+  background: #b9e8c1;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* Exciting click animation */
 nav .right ul li:active {
-	animation: clickBurst 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
-	background-color: #b9e5e8;
-	transform-origin: center;
+  animation: clickBurst 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  background-color: #b9e5e8;
+  transform-origin: center;
 }
 
 nav .right ul li:active::before {
-	content: "";
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 100%;
-	height: 100%;
-	border-radius: 8px;
-	transform: translate(-50%, -50%);
-	animation: shockwave 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  transform: translate(-50%, -50%);
+  animation: shockwave 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 }
 
 /* Create multiple ripples for extra effect */
 nav .right ul li:active::after {
-	content: "";
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 100%;
-	height: 100%;
-	background: transparent;
-	border-radius: 8px;
-	transform: translate(-50%, -50%);
-	animation: shockwave 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) 0.1s forwards;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border-radius: 8px;
+  transform: translate(-50%, -50%);
+  animation: shockwave 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) 0.1s forwards;
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
-	nav {
-		padding: 15px 20px;
-	}
+  nav {
+    padding: 15px 20px;
+  }
 
-	nav .right ul {
-		gap: 15px;
-	}
+  nav .right ul {
+    gap: 15px;
+  }
 
-	nav .left h2 {
-		font-size: 20px;
-	}
+  nav .left h2 {
+    font-size: 20px;
+  }
 }
 
 .container {
-	padding: 20px;
+  padding: 20px;
 }
 
 .containerTodo {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 10px 0;
-	border-top: 2px solid #dff2eb;
-	transition: padding-left 0.3s ease,
-		padding-right 0.6s cubic-bezier(0.645, 0.045, 0.355, 1),
-		background-color 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 2px solid #dff2eb;
+  transition: padding-left 0.3s ease,
+    padding-right 0.6s cubic-bezier(0.645, 0.045, 0.355, 1),
+    background-color 0.3s ease;
 }
 
 .todo-input {
-	display: flex;
-	justify-content: center;
-	gap: 5px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
 }
 
 .todo-input button {
-	color: black;
-	transform: translateX(200px);
-	transition: transform 0.5s ease-in-out;
+  color: black;
+  transform: translateX(200px);
+  transition: transform 0.5s ease-in-out;
 }
 
 .containerTodo.deadline {
-	background-color: #e74c3c;
-	color: #ffffff;
-	border-radius: 8px;
-	padding: 15px;
-	transition: padding 0.3s ease, background-color 0.3s ease;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	font-family: "Arial", sans-serif;
-	font-size: 16px;
-	font-weight: 500;
-	line-height: 1.5;
+  background-color: #e74c3c;
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 15px;
+  transition: padding 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 .containerTodo.deadline:hover {
-	background-color: #c0392b;
-	padding: 18px;
-	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  background-color: #c0392b;
+  padding: 18px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
 .containerTodo.deadline input[type="checkbox"] {
-	background-color: #b5b5b5;
-	border-radius: 6px;
+  background-color: #b5b5b5;
+  border-radius: 6px;
 }
 
 .containerTodo:first-child {
-	border-top: none;
+  border-top: none;
 }
 
 .containerTodo:hover {
-	background-color: rgba(184, 207, 245, 0.4);
-	padding-left: 5px;
-	padding-right: 15px;
+  background-color: rgba(184, 207, 245, 0.4);
+  padding-left: 5px;
+  padding-right: 15px;
 }
 
 .containerTodo:hover .todo-input button,
 input[type="checkbox"] {
-	transform: translateX(0);
-	transition: transform 0.4s ease-out;
+  transform: translateX(0);
+  transition: transform 0.4s ease-out;
 }
 
 .todo-input button {
-	width: 80px;
-	height: 30px;
-	font-weight: bold;
-	border-radius: 5px;
-	border: 2px solid black;
+  width: 80px;
+  height: 30px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 2px solid black;
 }
 
 .deadline .todo-input button {
-	color: white;
+  color: white;
 }
 
 .containerTodo input[type="checkbox"] {
-	appearance: none;
-	background-color: #ccc;
-	border-radius: 4px;
-	width: 50px;
-	height: 25px;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	padding: 2px;
-	cursor: pointer;
-	transition: background-color 0.3s ease, justify-content 0.3s ease;
-	position: relative;
-	overflow: hidden;
-	transform: translateX(80px);
-	transition: transform 0.2s ease;
-	transition-delay: 0.2s;
+  appearance: none;
+  background-color: #ccc;
+  border-radius: 4px;
+  width: 50px;
+  height: 25px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, justify-content 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  transform: translateX(80px);
+  transition: transform 0.2s ease;
+  transition-delay: 0.2s;
 }
 
 .containerTodo:hover .todo-input button,
 .containerTodo:hover .todo-input input[type="checkbox"] {
-	transform: translateX(0);
-	cursor: pointer;
-	transition: transform 0.2s ease-in-out;
+  transform: translateX(0);
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
 }
 
 .containerTodo input[type="checkbox"]::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: #4caf50;
-	transform: translateX(-100%);
-	transition: transform 0.3s ease;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #4caf50;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
 }
 
 .containerTodo input[type="checkbox"]:checked {
-	background-color: #4caf50;
-	justify-content: flex-end;
+  background-color: #4caf50;
+  justify-content: flex-end;
 }
 
 .containerTodo input[type="checkbox"]:checked::before {
-	transform: translateX(0);
+  transform: translateX(0);
 }
 
 .containerTodo input[type="checkbox"]::after {
-	content: "✓";
-	color: white;
-	font-size: 16px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%) scale(0);
-	transition: transform 0.3s ease;
+  content: "✓";
+  color: white;
+  font-size: 16px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.3s ease;
 }
 
 .containerTodo input[type="checkbox"]:checked::after {
-	transform: translate(-50%, -50%) scale(1);
-	animation: particles 0.5s ease-in-out;
+  transform: translate(-50%, -50%) scale(1);
+  animation: particles 0.5s ease-in-out;
 }
 
 @keyframes particles {
-	0% {
-		transform: translate(-50%, -50%) scale(0);
-		opacity: 1;
-	}
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
 
-	50% {
-		transform: translate(-50%, -60%) scale(1.2);
-		opacity: 1;
-	}
+  50% {
+    transform: translate(-50%, -60%) scale(1.2);
+    opacity: 1;
+  }
 
-	100% {
-		transform: translate(-50%, -70%) scale(0);
-		opacity: 0;
-	}
+  100% {
+    transform: translate(-50%, -70%) scale(0);
+    opacity: 0;
+  }
 }
 
 .add-button {
-	position: fixed;
-	bottom: 20px;
-	right: 20px;
-	z-index: 1000;
-	width: 80px;
-	height: 45px;
-	border-radius: 8px;
-	background: linear-gradient(145deg, #4caf50, #45a049);
-	border: none;
-	color: white;
-	font-size: 24px;
-	font-weight: bold;
-	cursor: pointer;
-	transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-	box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	overflow: hidden;
-	text-transform: uppercase;
-	letter-spacing: 1px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  width: 80px;
+  height: 45px;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #4caf50, #45a049);
+  border: none;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .add-button span {
-	display: flex;
-	align-items: center;
-	gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .add-button span::before {
-	content: "Add";
-	font-size: 16px;
-	opacity: 0;
-	transform: translateX(20px);
-	transition: all 0.3s ease;
+  content: "Add";
+  font-size: 16px;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all 0.3s ease;
 }
 
 .add-button:hover {
-	transform: translateY(-3px) scale(1.05);
-	box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
-	width: 140px;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+  width: 140px;
 }
 
 .add-button:hover span::before {
-	opacity: 1;
-	transform: translateX(0);
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .add-button:active {
-	transform: translateY(2px) scale(0.95);
-	box-shadow: 0 2px 10px rgba(76, 175, 80, 0.2);
+  transform: translateY(2px) scale(0.95);
+  box-shadow: 0 2px 10px rgba(76, 175, 80, 0.2);
 }
 
 .add-button::after {
-	content: "";
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	background: rgba(255, 255, 255, 0.3);
-	transform: scale(0);
-	transition: transform 0s;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(0);
+  transition: transform 0s;
 }
 
 .add-button:active::after {
-	transform: scale(2);
-	transition: transform 0.5s ease-out;
-	opacity: 0;
+  transform: scale(2);
+  transition: transform 0.5s ease-out;
+  opacity: 0;
 }
 
 .add-button::before {
-	content: "";
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	background: rgba(76, 175, 80, 0.4);
-	filter: blur(15px);
-	z-index: -1;
-	transition: all 0.3s ease;
-	opacity: 0;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(76, 175, 80, 0.4);
+  filter: blur(15px);
+  z-index: -1;
+  transition: all 0.3s ease;
+  opacity: 0;
 }
 
 .add-button:hover::before {
-	opacity: 1;
-	transform: scale(1.2);
+  opacity: 1;
+  transform: scale(1.2);
 }
 
 @keyframes pulse {
-	0% {
-		box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
-	}
+  0% {
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+  }
 
-	50% {
-		box-shadow: 0 4px 25px rgba(76, 175, 80, 0.5);
-	}
+  50% {
+    box-shadow: 0 4px 25px rgba(76, 175, 80, 0.5);
+  }
 
-	100% {
-		box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
-	}
+  100% {
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+  }
 }
 
 .add-button {
-	animation: pulse 2s infinite;
+  animation: pulse 2s infinite;
 }
 
 .add-button .particles {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
 .add-button .particle {
-	position: absolute;
-	width: 6px;
-	height: 6px;
-	background: white;
-	border-radius: 50%;
-	animation: particlesBurst 0.6s ease-out forwards;
-	opacity: 0;
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  animation: particlesBurst 0.6s ease-out forwards;
+  opacity: 0;
 }
 
 @keyframes particlesBurst {
-	0% {
-		transform: translate(-50%, -50%) scale(0);
-		opacity: 1;
-	}
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
 
-	100% {
-		transform: translate(
-				calc(cos(var(--angle)) * 70px),
-				calc(sin(var(--angle)) * 70px)
-			)
-			scale(1);
-		opacity: 0;
-	}
+  100% {
+    transform: translate(calc(cos(var(--angle)) * 70px),
+        calc(sin(var(--angle)) * 70px)) scale(1);
+    opacity: 0;
+  }
 }
 
 @keyframes slideIn {
-	from {
-		transform: translateX(100%);
-		opacity: 0;
-	}
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
 
-	to {
-		transform: translateX(0);
-		opacity: 1;
-	}
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .add-button {
-	animation: slideIn 0.5s ease-out forwards, pulse 2s infinite 0.5s;
+  animation: slideIn 0.5s ease-out forwards, pulse 2s infinite 0.5s;
 }
 
 .box-popup {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: rgba(74, 98, 138, 0.8);
-	backdrop-filter: blur(8px);
-	transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-	perspective: 1000px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(74, 98, 138, 0.8);
+  backdrop-filter: blur(8px);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  perspective: 1000px;
 }
 
 .menu {
-	background: linear-gradient(135deg, #6effa1, #269819);
-	padding: 30px;
-	border-radius: 20px;
-	box-shadow: 0 15px 35px rgba(74, 98, 138, 0.3);
-	transform-style: preserve-3d;
-	animation: floatMenu 6s ease-in-out infinite;
-	position: relative;
-	min-width: 320px;
-	overflow: hidden;
+  background: linear-gradient(135deg, #6effa1, #269819);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(74, 98, 138, 0.3);
+  transform-style: preserve-3d;
+  animation: floatMenu 6s ease-in-out infinite;
+  position: relative;
+  min-width: 320px;
+  overflow: hidden;
 }
 
 .menu h1 {
-	color: #ffffff;
+  color: #ffffff;
 }
 
 .inputTodo-list {
-	width: 100%;
-	padding: 15px;
-	margin-bottom: 20px;
-	border: 2px solid #98f49d;
-	border-radius: 12px;
-	background: #dff2e3;
-	color: #4a8a4e;
-	font-size: 16px;
-	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-	transform-style: preserve-3d;
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 2px solid #98f49d;
+  border-radius: 12px;
+  background: #dff2e3;
+  color: #4a8a4e;
+  font-size: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
 }
 
 .inputTodo-list:focus {
-	outline: none;
-	border-color: #4a8a5c;
-	box-shadow: 0 0 20px rgba(122, 211, 137, 0.4);
-	transform: translateY(-4px) translateZ(30px);
-	background: white;
+  outline: none;
+  border-color: #4a8a5c;
+  box-shadow: 0 0 20px rgba(122, 211, 137, 0.4);
+  transform: translateY(-4px) translateZ(30px);
+  background: white;
 }
 
 .inputTodo-list::placeholder {
-	color: #a1a1a1;
-	transition: all 0.3s ease;
+  color: #a1a1a1;
+  transition: all 0.3s ease;
 }
 
 .inputTodo-list:focus::placeholder {
-	transform: translateX(10px);
-	opacity: 0.5;
+  transform: translateX(10px);
+  opacity: 0.5;
 }
 
 /* Button styles with amazing effects */
 #todo-button,
 .cancel {
-	width: 100%;
-	padding: 12px 24px;
-	border: none;
-	border-radius: 12px;
-	font-size: 16px;
-	font-weight: bold;
-	cursor: pointer;
-	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-	position: relative;
-	overflow: hidden;
-	margin-bottom: 12px;
+  width: 100%;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 12px;
 }
 
 #todo-button {
-	background: linear-gradient(45deg, #18bb36, #19610d);
-	color: #dff2eb;
+  background: linear-gradient(45deg, #18bb36, #19610d);
+  color: #dff2eb;
 }
 
 .cancel {
-	background: linear-gradient(45deg, #70f17f, #b9e8c2);
-	color: #4b8a4a;
-	border: 2px solid #7dd37a;
+  background: linear-gradient(45deg, #70f17f, #b9e8c2);
+  color: #4b8a4a;
+  border: 2px solid #7dd37a;
 }
 
 #todo-button:hover,
 .cancel:hover {
-	transform: translateY(-3px) scale(1.02);
-	box-shadow: 0 10px 25px rgba(74, 98, 138, 0.3);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(74, 98, 138, 0.3);
 }
 
 #todo-button:hover::before,
 .cancel:hover::before {
-	content: "";
-	position: absolute;
-	top: -50%;
-	left: -50%;
-	width: 200%;
-	height: 200%;
-	background: radial-gradient(
-		circle,
-		rgba(255, 255, 255, 0.2) 0%,
-		transparent 60%
-	);
-	animation: rippleEffect 1s ease-out;
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle,
+      rgba(255, 255, 255, 0.2) 0%,
+      transparent 60%);
+  animation: rippleEffect 1s ease-out;
 }
 
 .hide {
-	opacity: 0;
-	pointer-events: none;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .hide-popup {
-	display: none;
+  display: none;
 }
 
 .show-popup {
-	display: block;
-	animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  display: block;
+  animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
 }
 
 .particle {
-	position: absolute;
-	pointer-events: none;
-	border-radius: 50%;
-	background: linear-gradient(135deg, #b9e5e8, #7ab2d3);
-	animation: particleFly 0.8s ease-out forwards;
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #b9e5e8, #7ab2d3);
+  animation: particleFly 0.8s ease-out forwards;
 }
 
 @keyframes floatMenu {
-	0%,
-	100% {
-		transform: translateY(0) rotateX(0deg);
-	}
 
-	25% {
-		transform: translateY(-10px) rotateX(2deg);
-	}
+  0%,
+  100% {
+    transform: translateY(0) rotateX(0deg);
+  }
 
-	75% {
-		transform: translateY(5px) rotateX(-2deg);
-	}
+  25% {
+    transform: translateY(-10px) rotateX(2deg);
+  }
+
+  75% {
+    transform: translateY(5px) rotateX(-2deg);
+  }
 }
 
 @keyframes rippleEffect {
-	0% {
-		transform: translate(-50%, -50%) scale(0);
-		opacity: 0.5;
-	}
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.5;
+  }
 
-	100% {
-		transform: translate(-50%, -50%) scale(2);
-		opacity: 0;
-	}
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
 }
 
 @keyframes popIn {
-	0% {
-		opacity: 0;
-		transform: scale(0.8) translateY(30px);
-	}
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(30px);
+  }
 
-	100% {
-		opacity: 1;
-		transform: scale(1) translateY(0);
-	}
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 @keyframes particleFly {
-	0% {
-		transform: scale(0) rotate(0deg);
-		opacity: 1;
-	}
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 1;
+  }
 
-	100% {
-		transform: scale(1.5) rotate(360deg) translate(var(--tx), var(--ty));
-		opacity: 0;
-	}
+  100% {
+    transform: scale(1.5) rotate(360deg) translate(var(--tx), var(--ty));
+    opacity: 0;
+  }
 }
 
 #todo-button:active,
 .cancel:active {
-	transform: scale(0.98);
-	box-shadow: 0 5px 15px rgba(74, 98, 138, 0.2);
+  transform: scale(0.98);
+  box-shadow: 0 5px 15px rgba(74, 98, 138, 0.2);
 }
 
 .inputTodo-list:not(:placeholder-shown) {
-	background: linear-gradient(45deg, #dff2eb, #b9e5e8);
-	border-color: #4a8a56;
+  background: linear-gradient(45deg, #dff2eb, #b9e5e8);
+  border-color: #4a8a56;
 }
 
 .menu::after {
-	content: "";
-	position: absolute;
-	top: -50%;
-	left: -50%;
-	width: 200%;
-	height: 200%;
-	background: linear-gradient(
-		45deg,
-		transparent,
-		rgba(255, 255, 255, 0.3),
-		transparent
-	);
-	transform: rotate(45deg);
-	animation: shine 3s infinite;
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent);
+  transform: rotate(45deg);
+  animation: shine 3s infinite;
 }
 
 @keyframes shine {
-	0% {
-		transform: translateX(-100%) rotate(45deg);
-	}
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
 
-	100% {
-		transform: translateX(100%) rotate(45deg);
-	}
+  100% {
+    transform: translateX(100%) rotate(45deg);
+  }
 }
 
 button:focus-visible,
 input:focus-visible {
-	outline: 3px solid #7ab2d3;
-	outline-offset: 2px;
+  outline: 3px solid #7ab2d3;
+  outline-offset: 2px;
 }
 
 .inputTodo-list::-webkit-scrollbar {
-	width: 8px;
+  width: 8px;
 }
 
 .inputTodo-list::-webkit-scrollbar-track {
-	background: #dff2eb;
-	border-radius: 4px;
+  background: #dff2eb;
+  border-radius: 4px;
 }
 
 .inputTodo-list::-webkit-scrollbar-thumb {
-	background: #7ad395;
-	border-radius: 4px;
+  background: #7ad395;
+  border-radius: 4px;
 }
 
 @media (max-width: 768px) {
-	nav {
-		padding: 12px 16px;
-		flex-direction: column;
-		gap: 10px;
-	}
+  nav {
+    padding: 12px 16px;
+    flex-direction: column;
+    gap: 10px;
+  }
 
-	nav .right ul {
-		gap: 10px;
-	}
+  nav .right ul {
+    gap: 10px;
+  }
 
-	nav .right ul li {
-		padding: 6px 12px;
-		font-size: 14px;
-	}
+  nav .right ul li {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
 
-	nav .left h2 {
-		font-size: 18px;
-	}
+  nav .left h2 {
+    font-size: 18px;
+  }
 }
 
 /* Improved delete button styling */
 .todo-input button.delete-btn {
-	background: linear-gradient(145deg, #ff4b4b, #e63e3e);
-	color: white;
-	border: none;
-	width: 35px;
-	height: 35px;
-	border-radius: 8px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	transform: translateX(200px);
-	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(145deg, #ff4b4b, #e63e3e);
+  color: white;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(200px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .todo-input button.delete-btn:hover {
-	background: linear-gradient(145deg, #ff3333, #cc3333);
-	transform: translateY(-2px);
-	box-shadow: 0 6px 12px rgba(255, 75, 75, 0.2);
+  background: linear-gradient(145deg, #ff3333, #cc3333);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(255, 75, 75, 0.2);
 }
 
 .todo-input button.delete-btn:active {
-	transform: translateY(1px);
-	box-shadow: 0 2px 4px rgba(255, 75, 75, 0.2);
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(255, 75, 75, 0.2);
 }
 
 /* Existing root and global styles remain the same */
 
 /* Enhanced responsive navigation */
 @media (max-width: 768px) {
-	nav {
-		padding: 12px 16px;
-		flex-direction: column;
-		gap: 10px;
-	}
+  nav {
+    padding: 12px 16px;
+    flex-direction: column;
+    gap: 10px;
+  }
 
-	nav .right ul {
-		gap: 10px;
-	}
+  nav .right ul {
+    gap: 10px;
+  }
 
-	nav .right ul li {
-		padding: 6px 12px;
-		font-size: 14px;
-	}
+  nav .right ul li {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
 
-	nav .left h2 {
-		font-size: 18px;
-	}
+  nav .left h2 {
+    font-size: 18px;
+  }
 }
 
 /* Improved delete button styling */
 .todo-input button.delete-btn {
-	background: linear-gradient(145deg, #ff4b4b, #e63e3e);
-	color: white;
-	border: none;
-	width: 35px;
-	height: 35px;
-	border-radius: 8px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	transform: translateX(200px);
-	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(145deg, #ff4b4b, #e63e3e);
+  color: white;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(200px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .todo-input button.delete-btn:hover {
-	background: linear-gradient(145deg, #ff3333, #cc3333);
-	transform: translateY(-2px);
-	box-shadow: 0 6px 12px rgba(255, 75, 75, 0.2);
+  background: linear-gradient(145deg, #ff3333, #cc3333);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(255, 75, 75, 0.2);
 }
 
 .todo-input button.delete-btn:active {
-	transform: translateY(1px);
-	box-shadow: 0 2px 4px rgba(255, 75, 75, 0.2);
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(255, 75, 75, 0.2);
 }
 
 /*RESPONSIVE SECTION FUCK UP*/
 @media (max-width: 576px) {
-	.container {
-		padding: 10px;
-	}
+  .container {
+    padding: 10px;
+  }
 
-	.containerTodo {
-		padding: 8px 0;
-	}
+  .containerTodo {
+    padding: 8px 0;
+  }
 
-	.containerTodo:hover {
-		padding-left: 3px;
-		padding-right: 8px;
-	}
+  .containerTodo:hover {
+    padding-left: 3px;
+    padding-right: 8px;
+  }
 
-	.todo-input {
-		gap: 5px;
-		display: flex;
-		align-items: center;
-	}
+  .todo-input {
+    gap: 5px;
+    display: flex;
+    align-items: center;
+  }
 
-	.todo-input button {
-		transform: translateX(0);
-		width: 45px;
-		font-size: 10px;
-	}
+  .todo-input button {
+    transform: translateX(0);
+    width: 45px;
+    font-size: 10px;
+  }
 
-	.todo-input input[type="checkbox"] {
-		width: 40px;
-		height: 20px;
-		transform: translateX(0);
-	}
+  .todo-input input[type="checkbox"] {
+    width: 40px;
+    height: 20px;
+    transform: translateX(0);
+  }
 }
 
 /* Improved add button responsiveness */
 @media (max-width: 576px) {
-	.add-button {
-		width: 46px;
-		height: 46px;
-		font-size: 36px;
-		bottom: 15px;
-		right: 15px;
-		gap: 0;
-		padding: 10px;
-		text-align: center;
-	}
+  .add-button {
+    width: 46px;
+    height: 46px;
+    font-size: 36px;
+    bottom: 15px;
+    right: 15px;
+    gap: 0;
+    padding: 10px;
+    text-align: center;
+  }
 
-	.add-button:hover {
-		width: 56px;
-	}
+  .add-button:hover {
+    width: 56px;
+  }
 
-	.add-button:active {
-		width: 80px;
-	}
+  .add-button:active {
+    width: 80px;
+  }
 
-	.add-button span::before {
-		content: "";
-		font-size: 1px;
-		opacity: 1;
-		transform: translateX(0);
-	}
+  .add-button span::before {
+    content: "";
+    font-size: 1px;
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 /* Enhanced popup responsiveness */
 @media (max-width: 576px) {
-	.menu {
-		padding: 20px;
-		min-width: 280px;
-		margin: 0 15px;
-	}
+  .menu {
+    padding: 20px;
+    min-width: 280px;
+    margin: 0 15px;
+  }
 
-	.inputTodo-list {
-		padding: 12px;
-		font-size: 14px;
-	}
+  .inputTodo-list {
+    padding: 12px;
+    font-size: 14px;
+  }
 
-	#todo-button,
-	.cancel {
-		padding: 10px 20px;
-		font-size: 14px;
-	}
+  #todo-button,
+  .cancel {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
 }
 
 /* Touch device optimizations */
 @media (hover: none) {
-	.containerTodo:hover {
-		background-color: transparent;
-	}
+  .containerTodo:hover {
+    background-color: transparent;
+  }
 
-	.todo-input button.delete-btn,
-	.containerTodo input[type="checkbox"] {
-		transform: translateX(0);
-	}
+  .todo-input button.delete-btn,
+  .containerTodo input[type="checkbox"] {
+    transform: translateX(0);
+  }
 
-	.add-button:hover {
-		width: 80px;
-	}
+  .add-button:hover {
+    width: 80px;
+  }
 
-	.add-button:hover span::before {
-		opacity: 0;
-	}
+  .add-button:hover span::before {
+    opacity: 0;
+  }
 }
 
 /* Ensure proper spacing in smaller viewports */
 @media (max-width: 400px) {
-	.containerTodo {
-		gap: 8px;
-	}
+  .containerTodo {
+    gap: 8px;
+  }
 
-	.todo-input {
-		flex-wrap: nowrap;
-	}
+  .todo-input {
+    flex-wrap: nowrap;
+  }
 
-	.todo-input button {
-		transform: translateX(0);
-	}
+  .todo-input button {
+    transform: translateX(0);
+  }
 }
