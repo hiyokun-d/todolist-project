@@ -101,7 +101,6 @@ export class Todo {
     const index = list_arr.findIndex(todo => todo.id === id);
     if (index !== -1) {
       showNotification(`DELETE: ${list_arr[index].title}`, {
-        description: "Someone must be update this text",
         duration: 1200
       })
       list_arr.splice(index, 1);

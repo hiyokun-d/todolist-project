@@ -222,7 +222,7 @@ export const closeNotification = () => {
       easing: "easeInOutCubic",
     })
     .add({
-      width: [autoWidth, 70],  // Shrink the width (optional)
+      width: [autoWidth / 2, 70],  // Shrink the width (optional)
       duration: 800,
       easing: "easeInOutCubic",
     })
@@ -326,7 +326,7 @@ export function showNotification(title, {
       easing: 'easeOutExpo',
     })
     .add({
-      width: [80, autoWidth + 10],  // Full width responsive to the parent container
+      width: [70, autoWidth / 2],  // Full width responsive to the parent container
       duration: 400,
       easing: 'easeInOutQuad',
       offset: '-=200'
