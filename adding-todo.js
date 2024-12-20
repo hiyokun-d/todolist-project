@@ -128,7 +128,7 @@ const addingnewTodo = () => {
   }
 
   const todo = new Todo(value);
-  showNotification("SUCCESS!", { duration: 1500 });
+  showNotification("SUCCESS!", { duration: 2500, description: "So for some reason to delete the List you need to restart your page" });
   todo.generate();
   hidePopup();
   updateCookie();
@@ -200,7 +200,6 @@ export function addingTodo() {
   });
 
   addButton.addEventListener("click", addingnewTodo)
-
   cancelButton.addEventListener("click", hidePopup)
   setupButtonHover()
 }

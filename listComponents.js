@@ -1,4 +1,5 @@
 import { updateCookie } from "./cookie";
+import { showNotification } from "./notification";
 
 // untuk nyimpen ID, TITLE dan sebagainya supaya bisa di akses lagi
 export let list_arr = [
@@ -20,8 +21,8 @@ export class Todo {
    * @param {String} input - Input tugas dalam bentuk string atau elemen input.
    * Ingat bre ini tuh input jadi harus {String} gak boleh yang lain
    *  */
-  constructor(input) {
-    this.input = input;
+  constructor(input = "") {
+    this.input = input || "";
     this.id = this.#generateID()
   }
 
@@ -50,22 +51,22 @@ export class Todo {
    */
   generate(oldDate,) {
     // Kode untuk menghasilkan elemen todo baru dan menambahkannya ke arr_todo
-    const date = new Date().toLocaleString();
+    const date = oldDate ? oldDate : new Date().toLocaleString();
     const containerTodo = document.getElementById("containerTodo")
 
     // buat dulu elementnya coy
     const newElement = document.createElement("div")
 
     // baru kita isi dengan element yang kita mau
-    console.log(oldDate)
+    console.log(date)
     newElement.innerHTML = `
          <label for="todoContainer">
           <h3>${this.input}</h3>
-          <p class="date">${oldDate ? oldDate : date}</p>
+          <p class="date" data-date="${date}">${date}</p>
         </label>
         <div class="todo-input">
-          <input name="todoContainer" type="checkbox" id=${this.id} class="todo-checkbox">
-          <button>delete</button>
+          <input name="todoContainer" type="checkbox" data-input-id=${this.id} class="todo-checkbox">
+          <button class="delete-Todo" data-id="${this.id}">delete</button>
         </div>
 
       `
@@ -96,6 +97,22 @@ export class Todo {
 
   delete(id) {
     const deleteElement = document.getElementById(id);
-    deleteElement.remove()
+    console.log(id)
+    const index = list_arr.findIndex(todo => todo.id === id);
+    if (index !== -1) {
+      showNotification(`DELETE: ${list_arr[index].title}`, {
+        description: "Someone must be update this text",
+        duration: 1200
+      })
+      list_arr.splice(index, 1);
+      console.log(list_arr);
+      if (deleteElement) {
+        deleteElement.remove()
+      }
+
+      updateCookie("user-todo")
+
+
+    }
   }
 }

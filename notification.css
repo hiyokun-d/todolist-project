@@ -3,6 +3,7 @@
   --neon-secondary: #ff6b6b;
   --deep-dark: #1a1a2e;
   --vibrant-shadow: rgba(78, 205, 196, 0.4);
+  --yellow-accent: #ccae5a;
 }
 
 .todo-notification {
@@ -21,8 +22,11 @@
   transform-origin: bottom left;
   overflow: hidden;
   color: white;
+  backdrop-filter: blur(8px);
+  z-index: 1000;
 }
 
+/* Enhanced glow effect */
 .todo-notification::before {
   content: '';
   position: absolute;
@@ -31,20 +35,27 @@
   width: 200%;
   height: 200%;
   background: radial-gradient(circle at center,
-      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.2) 0%,
       transparent 70%);
   animation: pulse-glow 3s infinite alternate;
   opacity: 0.5;
+  pointer-events: none;
 }
 
+/* Improved pulse animation */
 @keyframes pulse-glow {
   0% {
-    transform: scale(0.9);
+    transform: scale(0.9) rotate(0deg);
     opacity: 0.4;
   }
 
+  50% {
+    transform: scale(1.0) rotate(180deg);
+    opacity: 0.6;
+  }
+
   100% {
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(360deg);
     opacity: 0.7;
   }
 }
@@ -55,6 +66,7 @@
   align-items: center;
   margin-bottom: 15px;
   text-wrap: nowrap;
+  position: relative;
 }
 
 .todo-notification-header h3 {
@@ -62,8 +74,10 @@
   font-size: 1.4em;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   letter-spacing: 1px;
+  font-weight: 600;
 }
 
+/* Enhanced exit button */
 .todo-notification-exit {
   background: rgba(0, 0, 0, 0.3);
   border-radius: 50%;
@@ -75,8 +89,18 @@
   border: none;
   color: white;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 2;
+  backdrop-filter: blur(4px);
+}
+
+.todo-notification-exit:hover {
+  background: rgba(255, 107, 107, 0.8);
+  transform: rotate(90deg);
+}
+
+.todo-notification-exit:active {
+  transform: rotate(90deg) scale(0.9);
 }
 
 .todo-notification-buttons {
@@ -85,6 +109,7 @@
   margin-top: 15px;
 }
 
+/* Enhanced button styles */
 .todo-notification-buttons button {
   flex-grow: 1;
   padding: 12px;
@@ -95,9 +120,10 @@
   letter-spacing: 1px;
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1;
-  /* Ensure the button is clickable */
+  color: white;
+  cursor: pointer;
 }
 
 .todo-notification-buttons button::before {
@@ -107,27 +133,115 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  background: linear-gradient(120deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      transparent 100%);
   transition: all 0.5s ease;
   z-index: -1;
-  /* Ensure the pseudo-element is below the button */
+}
+
+.todo-notification-buttons button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .todo-notification-buttons button:hover::before {
   left: 100%;
 }
 
+.todo-notification-buttons button:active {
+  transform: translateY(1px);
+}
+
+/* Enhanced button variants */
 .primary-button {
-  background-color: #4ecdc4;
+  background-color: var(--neon-primary);
   box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
 }
 
 .secondary-button {
-  background-color: #ff6b6b;
+  background-color: var(--neon-secondary);
   box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
 }
 
 .yellow-button {
-  background-color: #ccae5a;
-  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+  background-color: var(--yellow-accent);
+  box-shadow: 0 5px 15px rgba(204, 174, 90, 0.4);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .todo-notification {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    max-width: calc(100% - 20px);
+    min-width: auto;
+    padding: 15px;
+  }
+
+  .todo-notification-header h3 {
+    font-size: 1.2em;
+  }
+
+  .todo-notification-buttons {
+    gap: 8px;
+  }
+
+  .todo-notification-buttons button {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+  .todo-notification-exit:hover {
+    transform: none;
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .todo-notification-buttons button:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .todo-notification-buttons button::before {
+    display: none;
+  }
+}
+
+/* Animation for notification entry */
+@keyframes slideIn {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Animation for notification exit */
+@keyframes slideOut {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.todo-notification.show {
+  animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.todo-notification.hide {
+  animation: slideOut 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }

@@ -307,6 +307,12 @@ export function showNotification(title, {
     targets: elContainer,
     easing: 'easeOutExpo',
     duration: 1200,
+    begin: () => {
+      elContainer.style.overflow = 'hidden';  // Hide overflow during animation
+    },
+    complete: () => {
+      elContainer.style.overflow = '';  // Reset overflow after animation
+    }
   })
     .add({
       opacity: [0, 1],
@@ -318,6 +324,12 @@ export function showNotification(title, {
       height: [80, autoHeight],  // Animate height from 0 to auto height
       duration: 300,
       easing: 'easeOutExpo',
+    })
+    .add({
+      width: [80, autoWidth + 10],  // Full width responsive to the parent container
+      duration: 400,
+      easing: 'easeInOutQuad',
+      offset: '-=200'
     });
 
   elTodoNotificationExit.addEventListener("click", closeNotification);

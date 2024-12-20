@@ -1,7 +1,9 @@
 import { addingTodo } from "./adding-todo";
-import { deleteCookie, getCookie, setCookie } from "./cookie";
+import { deleteCookie, getCookie, setCookie, updateCookie } from "./cookie";
 import { list_arr, Todo } from "./listComponents";
 import { showNotification } from "./notification";
+
+const deleteButton = document.getElementsByClassName("delete-Todo")
 
 
 function initializeTodoList() {
@@ -24,6 +26,7 @@ function initializeTodoList() {
         todoItem.generate(todo.date);
       });
       showNotification("Loaded data!", {
+        description: "All your data has been loaded from the cookie :)",
         duration: 1200
       });
     }
@@ -36,19 +39,27 @@ addingTodo()
 function updateTodoPage() {
   list_arr.forEach((main) => {
     const generatingTodo = new Todo(main.title);
-    generatingTodo.deadline("H441");
     // generatingTodo.delete("T562")
   })
 }
 
 updateTodoPage()
+/* DELETE FUNCTION SOMETHING SOMETHING AOWOAWKOAWKOAKWO */
 
-function deleteTodoPage() {
-  showNotification("Deleting the Cookie!", {
-    description: "to update the cookie just simply reload the page again!",
-    duration: 1200
-  })
+function deleteTodo(e) {
+  console.log("h")
 
+
+  updateTodoPage();
+  const deletingTodo = new Todo();
+  const todoId = e.target.getAttribute('data-id');
+  deletingTodo.delete(todoId)
+  console.log(todoId)
+}
+
+Array.from(deleteButton).forEach(button => button.addEventListener("click", deleteTodo))
+
+function deleteEntireTodoPage() {
   list_arr.length = 0;
   deleteCookie("user-todo")
   updateTodoPage();
@@ -58,6 +69,6 @@ function deleteTodoPage() {
 
 document.addEventListener("keypress", (event) => {
   if (event.key == "~") {
-    deleteTodoPage()
+    deleteEntireTodoPage()
   }
 })
